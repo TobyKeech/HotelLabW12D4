@@ -7,7 +7,6 @@ public abstract class Room {
     public Room( RoomType roomType, ArrayList<Guest> guests){
         this.roomType = roomType;
         this.guests = new ArrayList<>();
-
     }
 
     public ArrayList<Guest> getGuests() {
@@ -18,17 +17,13 @@ public abstract class Room {
        return this.getGuests().size();
     }
 
-    public void setGuests(ArrayList<Guest> guests) {
-        this.guests = guests;
-    }
-
     public void addGuest(Guest guest)
     {if (this.hasCapacity())
         {this.guests.add(guest);}
     }
 
     public boolean hasCapacity(){
-        return this.roomType.getCapacity() > noOfGuests();
+        return this.getCapacityFromEnum() > noOfGuests();
     }
 
     public void removeGuest(Guest chosenGuest){
@@ -37,11 +32,6 @@ public abstract class Room {
 
     public RoomType getRoomType() {
         return this.roomType;
-    }
-
-
-    public void setRoomType(RoomType roomType) {
-        this.roomType = roomType;
     }
 
     public int getCapacityFromEnum(){

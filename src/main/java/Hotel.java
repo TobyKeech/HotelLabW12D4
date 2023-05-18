@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Hotel {
@@ -32,5 +33,15 @@ public class Hotel {
         Room room1 = getRoom(room);
         room1.removeGuest(byeGuest);
     }
+
+    public Booking bookRoom(Bedroom bedroom, int noOfNights){
+        return new Booking(bedroom, noOfNights);
+    }
+//
+//    public Booking getBooking(Booking chosenBooking){
+//        for (Booking booking : this.bookings)
+//            if (booking == chosenBooking) return booking;
+//        return null;
+//    }
 
 }

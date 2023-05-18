@@ -10,12 +10,14 @@ public class HotelTest {
     Hotel hotel;
     ArrayList<Room> rooms;
     Guest aneeqa;
-    Room room;
+    Bedroom room;
     ArrayList<Guest> guests;
+    ArrayList<Booking> bookings;
 
     @Before
     public void before(){
         rooms = new ArrayList<>();
+        bookings = new ArrayList<>();
         hotel = new Hotel(rooms);
         aneeqa = new Guest("Aneeqa");
         guests = new ArrayList<>();
@@ -42,5 +44,18 @@ public class HotelTest {
         hotel.checkIn(aneeqa,room);
         hotel.checkIn(aneeqa,room);
         assertEquals(2, room.noOfGuests());
+    }
+
+//    @Test
+//    public void createBooking(){
+//        Booking booking;
+//        booking = hotel.bookRoom(room, 5);
+//        assertEquals(booking, hotel.getBooking(booking));
+//    }
+
+    @Test
+    public void givesCost(){
+        Booking booking = hotel.bookRoom(room, 2);
+        assertEquals(400, booking.totalCost());
     }
 }
