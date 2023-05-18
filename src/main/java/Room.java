@@ -23,8 +23,12 @@ public abstract class Room {
     }
 
     public void addGuest(Guest guest)
-    {if (this.getCapacityFromEnum() <= noOfGuests())
+    {if (this.hasCapacity())
         {this.guests.add(guest);}
+    }
+
+    public boolean hasCapacity(){
+        return this.roomType.getCapacity() > noOfGuests();
     }
 
     public void removeGuest(Guest chosenGuest){
@@ -34,6 +38,7 @@ public abstract class Room {
     public RoomType getRoomType() {
         return this.roomType;
     }
+
 
     public void setRoomType(RoomType roomType) {
         this.roomType = roomType;

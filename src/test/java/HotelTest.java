@@ -20,20 +20,27 @@ public class HotelTest {
         aneeqa = new Guest("Aneeqa");
         guests = new ArrayList<>();
         room = new Bedroom(RoomType.DOUBLE, guests, 101);
+        rooms.add(room);
     }
 
     @Test
     public void canCheckIn(){
-        rooms.add(room);
         hotel.checkIn(aneeqa, room);
         assertEquals(1, room.noOfGuests());
     }
 
     @Test
     public void canCheckOut(){
-        rooms.add(room);
         hotel.checkIn(aneeqa, room);
         hotel.checkOut(aneeqa, room);
         assertEquals(0, room.noOfGuests());
+    }
+
+    @Test
+    public void cantCheckInIfFull(){
+        hotel.checkIn(aneeqa,room);
+        hotel.checkIn(aneeqa,room);
+        hotel.checkIn(aneeqa,room);
+        assertEquals(2, room.noOfGuests());
     }
 }
