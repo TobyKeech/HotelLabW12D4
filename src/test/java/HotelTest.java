@@ -46,12 +46,12 @@ public class HotelTest {
         assertEquals(2, room.noOfGuests());
     }
 
-//    @Test
-//    public void createBooking(){
-//        Booking booking;
-//        booking = hotel.bookRoom(room, 5);
-//        assertEquals(booking, hotel.getBooking(booking));
-//    }
+   @Test
+    public void createBooking(){
+    Booking booking;
+    booking = hotel.bookRoom(room, 5);
+    assertEquals(5, booking.getNumberOfNights());
+}
 
     @Test
     public void givesCost(){
